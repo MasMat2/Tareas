@@ -185,10 +185,43 @@ for materia, tareas in Tareas["Materias"].items():
         puntos = count(detalles["Partes"])+1
         delta_t = (fecha - datetime.datetime.now())/puntos
         for index in range(len(detalles["Partes"])):
-            dinamic_to_do.append((delta_t*(index+1)+datetime.datetime.now(), detalles["Partes"][index]))
+            dinamic_to_do.append((delta_t*(index+1)+datetime.datetime.now(), detalles["Partes"][index], f"{tarea} {materia}"))
 
 for i in (sorted(dinamic_to_do, key=lambda x: x[0])):
-    print(f'{i[0].strftime("%d/%m/%Y %H:%M:%S")}    {i[1]}')
+    print(f'{i[0].strftime("%d/%m/%Y %H:%M:%S"):20}    {i[1]}  {i[2]}')
 
-print(datetime.datetime.now())
-# print(count(tareas["Materias"]["Circuitos Digitales"]))
+import xlsxwriter
+
+workbook = xlsxwriter.Workbook('tareas.xlsx')
+worksheet = workbook.add_worksheet()
+
+# row = 0
+# max_rows = (ord("Z")-ord("A"))
+# for tarea in (sorted(dinamic_to_do, key=lambda x: x[0])):
+#     column = 0 
+#     for punto in tarea:
+#         column += 1
+#         ascii_val = ord("A")+row
+#         if ascii_val > ord("Z"):
+#             letters = int((ascii_val-ord("A"))/max_rows)
+#             ascii_val = ascii_val-max_rows*letters
+#             print(f'{"A"}{chr(ascii_val)}{column}')
+#             worksheet.write(f'{"A"}{chr(ascii_val)}{column}', "xi")
+#         else:
+#             print(f'{chr(ord("A")+row)}{column}')
+#             pos = f'{row}{chr(ord("A")+column)}'
+#             worksheet.write(pos, "xi")
+#     row += 1
+
+row = 0
+max_rows = (ord("Z")-ord("A"))
+for tarea in (sorted(dinamic_to_do, key=lambda x: x[0])):
+    for punto in range(len(tarea)):
+        ascii_val = ord("A")+punto
+        pos = f'{chr(ascii_val)}{row+1}'
+        if punto == 0:
+            worksheet.write(pos, f'{tarea[punto].strftime("%d/%m/%Y %H:%M:%S")}')
+        else:
+            worksheet.write(pos, str(tarea[punto]))
+    row += 1
+workbook.close()
