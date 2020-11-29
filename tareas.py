@@ -1,6 +1,6 @@
 import datetime
 
-tareas = {"Materias":{
+Tareas = {"Materias":{
     "Probabilidad":{
         "PIA":{
             "Fecha de entrega": datetime.datetime(2020, 12, 7, 23, 59), 
@@ -15,7 +15,7 @@ tareas = {"Materias":{
     },
     "Ecuaciones diferenciales":{
         "Tarea 7":{
-            datetime.datetime(2020, 11, 29, 23, 59),
+            "Fecha de entrega": datetime.datetime(2020, 11, 29, 23, 59),
             "Partes":[
                 "Estudiar transformadas de Laplace",
                 "Resolver problema"
@@ -24,7 +24,7 @@ tareas = {"Materias":{
     },
     "Circuitos Digitales":{
         "PIA":{
-            datetime.datetime(2020, 12, 5, 12, 0),
+            "Fecha de entrega": datetime.datetime(2020, 12, 5, 12, 0),
             "Partes":[
                 "Revisar Introducion, Descripcion, Diagrama, Materiales",
                 "Revisar Desarrollo con la descripcion y fotografia de cada uno de los pasos",
@@ -34,13 +34,13 @@ tareas = {"Materias":{
             ]
         },
         "Tarea":{
-            datetime.datetime(2020, 11, 30, 16, 0),
-            "Partes":{
+            "Fecha de entrega": datetime.datetime(2020, 11, 30, 16, 0),
+            "Partes":[
                 "Simplificar 6 ecuaciones booleanas, con tablas de verdad y mapas de karnaugh",
-            }
+            ]
         },
         "Investigacion":{
-            datetime.datetime(2020, 12, 4, 16, 0)
+            "Fecha de entrega": datetime.datetime(2020, 12, 4, 16, 0),
             "Partes":[
                 "Crear layout del documento a entregar",
                 "Definir concepto memoria",
@@ -53,7 +53,7 @@ tareas = {"Materias":{
     },
     "Estructuras de Datos":{
         "PIA":{
-            datetime.datetime(2020, 12, 6, 23, 59)
+            "Fecha de entrega": datetime.datetime(2020, 12, 6, 23, 59),
             "Partes":[
                 "Revisar avances y actualizar pendientes"
             ]
@@ -61,7 +61,7 @@ tareas = {"Materias":{
     },
     "Laboratorio de Aplicaciones Moviles":{
         "Practicas 11-15":{
-            datetime.datetime(2020, 12, 8, 0, 0),
+            "Fecha de entrega": datetime.datetime(2020, 12, 8, 0, 0),
             "Partes":[
                 "Realizar Practica 11",
                 "Realizar Practica 12",
@@ -73,19 +73,19 @@ tareas = {"Materias":{
     },
     "Aplicaciones Moviles":{
         "PIA":{
-            datetime.datetime(2020, 12, 4, 23, 59),
+            "Fecha de entrega": datetime.datetime(2020, 12, 4, 23, 59),
             "Partes":[
                 {
                     "Idear un proyecto Angular":{
                         "Ideas":[
                             "Clon de reddit"
-                        ]
+                        ],
                         "Requistos":[
                             "Debe incluir al menos 3 componentes",
                             "Usar una API Rest",
                         ]
                     }
-                }
+                },
                 "Tipar estructuras del proyecto en Typescript",
                 "Resgauardar en git",
                 "Validaciones en los formularios",
@@ -93,41 +93,47 @@ tareas = {"Materias":{
             ]
         },
         "Tarea 4":{
-            datetime.datetime(2020, 12, 4, 23, 59),
+            "Fecha de entrega": datetime.datetime(2020, 12, 4, 23, 59),
             "Partes":[
                 "Realizar presentacion de powerpoint acerca del tema que mas me haya gustado de la materia",
                 {"Ideas":[
                     "Realizar presentacion acerca de las APIs"]}
                 ]
         },
-        "Proyecto de innovacion":{datetime.datetime(2020, 12, 3, 23, 59)},
+        "Proyecto de innovacion":{
+            "Fecha de entrega": datetime.datetime(2020, 12, 3, 23, 59),
+            "Partes":[
+                "Actualizar tareas"
+            ]
+            },
     },
     "Cultura de Paz":{
         "Evidencia 3":{
-            datetime.datetime(2020, 12, 10, 23, 59),
-            "Partes":{
+            "Fecha de entrega": datetime.datetime(2020, 12, 10, 23, 59),
+            "Partes":[
                 "Investigar acerca de Asociación Faro en el Camino: Reinserción Social",
                 "Crear layout del ensayo o resumen",
-                "Terminar mitad del ensayo o resumen",
+                "Desarrollar ensayo o resumen",
                 "Terminar ensayo o resumen"
-            }
+            ]
             },
         "Evidencia 4":{
-            datetime.datetime(2020, 12, 10, 23, 59),
-            "Partes":{
-                "Investigacion":{
+            "Fecha de entrega": datetime.datetime(2020, 12, 10, 23, 59),
+            "Partes":[
+                {"Investigacion":{
                     "Identificar conflicto social; plantear la problemática.",
                     "Analizar qué estrategias se han utilizado para tratar de solucionarlo.",
                     "Hacer propuesta de estrategia de cómo lo solucionarían.",
                     "Indicar qué valores de la cultura de paz están contemplados y en qué parte de la estrategia de la propuesta están."
-                }
+                }},
                 "Crear layout del ensayo",
-                "Terminar mitad del ensayo",
+                "Desarrollar ensayo",
                 "Terminar ensayo"
-            }
+            ]
             },
-        "Evidencia 5":[
-            datetime.datetime(2020, 12, 10, 23, 59),
+        "Evidencia 5":{
+            "Fecha de entrega": datetime.datetime(2020, 12, 7, 23, 59),
+            # "Fecha de entrega": datetime.datetime(2020, 12, 10, 23, 59), #original
             "Partes":[
                 "Identificar modelo de responsabilidad social",
                 "Describir las acciones actuales que lleva a cabo su institución de educación superior para incluir en sus modelos educativos la educación para la paz.",
@@ -135,13 +141,54 @@ tareas = {"Materias":{
                 "Definir idea",
                 "Proponer una estrategia de mejora a favor de acciones de educación para la paz en su institución de educación superior, en concordancia con los modelos de responsabilidad social, en la que se incluyan: descripción, objetivos, alcances, impacto social y beneficios.",
                 "Crear layout del ensayo",
-                "Terminar mitad del ensayo",
+                "Desarrollar ensayo",
                 "Terminar ensayo"
             ]
-        ],
-        "PIA":{datetime.datetime(2020, 12, 11, 23, 59),},
+        },
+        "PIA":{
+            "Fecha de entrega": datetime.datetime(2020, 12, 11, 23, 59),
+            "Partes":[
+                "Terminar evidencia 5",
+                "Organizar campaña para promover la cultura de paz en el contexto local e inmediato",
+                "Actualizar tareas",
+                "Crear layout",
+                "Desarrollar campania",
+                "Terminar campania"
+            ]
+            },
     },
 }}
 
-for materia in tareas.Materias:
-    print(materia)
+def count(structure):
+    if isinstance(structure, (str, datetime.datetime)):
+        return 1
+    
+    if isinstance(structure, list):
+        return len(structure)
+    
+    if not isinstance(structure, dict):
+        print(type(structure))
+        raise ValueError
+
+
+    suma = 0
+    for key, value in structure.items():
+        suma += count(value)
+    
+    return suma
+
+
+dinamic_to_do = []
+for materia, tareas in Tareas["Materias"].items():
+    for tarea, detalles in tareas.items():
+        fecha = detalles["Fecha de entrega"]
+        puntos = count(detalles["Partes"])+1
+        delta_t = (fecha - datetime.datetime.now())/puntos
+        for index in range(len(detalles["Partes"])):
+            dinamic_to_do.append((delta_t*(index+1)+datetime.datetime.now(), detalles["Partes"][index]))
+
+for i in (sorted(dinamic_to_do, key=lambda x: x[0])):
+    print(f'{i[0].strftime("%d/%m/%Y %H:%M:%S")}    {i[1]}')
+
+print(datetime.datetime.now())
+# print(count(tareas["Materias"]["Circuitos Digitales"]))
