@@ -12,6 +12,29 @@ Tareas = {"Materias":{
                 "Pasar calculos y procedimientos a Word"
             ]
         },
+        "Solucion de casos 6":{
+            "Fecha de entrega": datetime.datetime(2020, 12, 4, 12, 30),
+            "Partes":[
+                "Investigar los temas que abarcan",
+                "Estudiar densidades de probabilidad especiales",
+                "Reforzar conocimientos",
+                "Agregar formulas a formulario",
+                "Resolver mitad de la solucion de casos",
+                "Terminar solucion de casos",
+            ]
+        },
+        "Formulario":{
+            "Fecha de entrega": datetime.datetime(2020, 12, 7, 12, 0),
+            "Partes":[
+                "Crear portada",
+                "Crear layout",
+                "Investigar criterios",
+                "Conseguir formularios",
+                "Ordenar contenido",
+                "Agregar color",
+                "Revisar formato"
+            ]
+        }
     },
     "Ecuaciones diferenciales":{
         "Tarea 7":{
@@ -33,10 +56,27 @@ Tareas = {"Materias":{
                 "Agreagar Indice, Portada, Formato",
             ]
         },
-        "Tarea":{
+        "Evidencia 1":{
             "Fecha de entrega": datetime.datetime(2020, 11, 30, 16, 0),
             "Partes":[
+                "Hacer mapa de karnaugh",
                 "Simplificar 6 ecuaciones booleanas, con tablas de verdad y mapas de karnaugh",
+            ]
+        },
+        "Evidencia 2":{
+            "Fecha de entrega": datetime.datetime(2020, 12, 1, 16, 0),
+            "Partes":[
+                "Realizar resumen sobre sistemas combinacionales",
+                "Agregar conclusiones",
+                "Dar formato"
+            ]
+        },
+        "Evidencia 3":{
+            "Fecha de entrega": datetime.datetime(2020, 12, 2, 16, 0),
+            "Partes":[
+                "Aplicar metodologia de diseno secuencial para crear un sistema con dos estados usando un flipflop JK",
+                "Aplicar metodologia de diseno secuencial para crear un sistema con dos estados usando un flipflop D",
+                "Documentar los 9 pasos en un documento de Word"
             ]
         },
         "Investigacion":{
@@ -100,12 +140,28 @@ Tareas = {"Materias":{
                     "Realizar presentacion acerca de las APIs"]}
                 ]
         },
-        "Proyecto de innovacion":{
+        "Proyecto de innovacion tecnico":{
             "Fecha de entrega": datetime.datetime(2020, 12, 3, 23, 59),
             "Partes":[
-                "Actualizar tareas"
+                "Idear una aplicacion tecnologica que resuelva algun problema que surge cuando estas de viaje",
+                "En que constara el proyecto",
+                "Funcionalidad de la aplicación",
+                "Fases del desarrollo del proyecto",
+                "Arquitectura de la aplicación",
+                "Diseno de vista",
+                "Tecnica y herramientas",
+                "Definición de la empresa, organigrama",
+                "Definición de roles",
+                "Historia",                    
             ]
-            },
+        },
+        "Proyecto de innovacion funcional":{
+            "Fecha de entrega": datetime.datetime(2020, 12, 3, 23, 59),
+            "Partes":[
+                "Diseno de las vistas y funciones de la aplicacion",
+                "Esquema de la app"
+            ]
+        },
     },
     "Cultura de Paz":{
         "Evidencia 3":{
@@ -178,21 +234,23 @@ def count(structure):
     return suma
 
 
+now = datetime.datetime(2020, 11, 28, 22, 0)
 dinamic_to_do = []
 for materia, tareas in Tareas["Materias"].items():
     for tarea, detalles in tareas.items():
         fecha = detalles["Fecha de entrega"]
         puntos = count(detalles["Partes"])+1
-        delta_t = (fecha - datetime.datetime.now())/puntos
+        time_left = fecha - now
+        delta_t = (time_left)/puntos
         for index in range(len(detalles["Partes"])):
-            dinamic_to_do.append((delta_t*(index+1)+datetime.datetime.now(), detalles["Partes"][index], f"{tarea} {materia}"))
+            dinamic_to_do.append((delta_t*(index+1)+now, detalles["Partes"][index], f"{tarea} {materia}", f"{str(time_left)}"))
 
 for i in (sorted(dinamic_to_do, key=lambda x: x[0])):
     print(f'{i[0].strftime("%d/%m/%Y %H:%M:%S"):20}    {i[1]}  {i[2]}')
 
 import xlsxwriter
 
-workbook = xlsxwriter.Workbook('tareas.xlsx')
+workbook = xlsxwriter.Workbook('tareas1.xlsx')
 worksheet = workbook.add_worksheet()
 
 # row = 0
